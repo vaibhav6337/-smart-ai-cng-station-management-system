@@ -1,9 +1,11 @@
+from __future__ import annotations
 from datetime import datetime
 from sqlalchemy import String, Integer, Float, Boolean, DateTime
 from sqlalchemy.orm import Mapped, mapped_column
-
+from sqlalchemy.orm import relationship
 from app.database.base import Base
-
+from typing import List
+from sqlalchemy.orm import Mapped, relationship
 
 class Station(Base):
     __tablename__ = "stations"
@@ -38,3 +40,10 @@ class Station(Base):
         default=datetime.utcnow,
         onupdate=datetime.utcnow
     )
+    cameras: Mapped[List["Camera"]] = relationship(
+    back_populates="station",
+    cascade="all, delete-orphan"
+    )
+    
+
+
