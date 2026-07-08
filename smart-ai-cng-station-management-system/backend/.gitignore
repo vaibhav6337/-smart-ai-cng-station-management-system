@@ -1,7 +1,18 @@
-venv/
+# Virtual Environment
+.venv/
+
+# Environment Variables
+.env
+
+# Python
 __pycache__/
 *.pyc
-node_modules/
-.env
-.idea/
+
+# VS Code
 .vscode/
+
+# Alembic
+*.db
+
+# Logs
+*.log
